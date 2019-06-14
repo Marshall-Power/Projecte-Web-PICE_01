@@ -14,18 +14,33 @@
             .lletra{
                 font-family: Verdana;
             }
-            p.lletra{
-                font-family: 'Courier New', Courier, monospace;
-            }
-            h1 b{
+            b>i{
                 text-decoration: underline;
+            }
+            h1~p{
+                text-decoration: underline;
+            }
+            li:first-child{
+                color:rgb(133, 0, 133);
+            }
+            li:last-child{
+                color:rgb(143, 6, 33);
+            }
+            li:nth-child(3){
+                color:red;
+            }
+            li:nth-child(even){
+                color:blue;
+            }
+            li:nth-child(odd){
+                color:green;
             }
         </style>
     </head>
     <body>
         <h1 class="lletra">Deserunt <b>pariatur</b> aliquip </h1>
         <p class="lletra">
-            Aute <b>magna</b> ex ipsum duis dolor. Amet esse enim qui consequat dolore sunt culpa nostrud consectetur. Adipisicing reprehenderit Lorem enim ipsum deserunt minim do esse. Nulla ut consequat irure non et et amet minim incididunt. Laborum dolore adipisicing nulla reprehenderit veniam quis.
+            Aute magna ex <b>ipsum <i>duis</i></b> dolor. <i>Amet</i> esse enim qui consequat dolore sunt culpa nostrud consectetur. Adipisicing reprehenderit Lorem enim ipsum deserunt minim do esse. Nulla ut consequat irure non et et amet minim incididunt. Laborum dolore adipisicing nulla reprehenderit veniam quis.
         </p>
         <p id="segonp">
             Irure ad eiusmod proident dolor. Commodo voluptate cillum ad exercitation non laborum consectetur ut amet non exercitation adipisicing ut. Fugiat nisi deserunt mollit nisi voluptate commodo nostrud excepteur magna eu aliqua ad do. Cillum Lorem nisi occaecat veniam id dolore aliquip est. Minim ipsum id irure id. Lorem mollit eu reprehenderit laboris incididunt. Proident aliqua irure magna sit do esse mollit id.
@@ -34,6 +49,35 @@
         </p>
 
         <a href="https://www.google.com"> Google </a>
+        <ul>
+            <li>Dilluns</li> 
+            <li>Dimarts</li>
+            <li>Dimecres</li>
+            <li>Dijous</li>
+            <li>Divendres</li>
+            <li>Dissabte</li>
+            <li>Diumenge</li>
+        </ul>
 
+        <table><caption>Phone numbers</caption>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Phone</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>John</td>
+                    <td>577854</td>
+                    <td>577855</td>
+                </tr>
+                <tr>
+                    <td>Jack</td>
+                    <td>577856</td>
+                    <td>577857</td>
+                </tr>
+            </tbody>
+        </table>
     </body>
 </html>

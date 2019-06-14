@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <style>
+        th{
+            background-color:black;
+            color:white;
+        }
+        tr:nth-child(even){
+            background-color:white;
+        }
+        tr:nth-child(odd){
+             background-color:grey;
+        }
+        td:last-child{
+            font-style:bold;
+        }
+        tfoot td{
+            background-color: red;
+            
+        }
+        tfoot td:last-child{
+            background-color: red; 
+            text-decoration: underline;           
+        }
+        td:last-child{
+            font-weight: bold;
+        }
+        
+        </style>
+
+    </head>
+    <body>
+        <table border=1><caption>Numbers</caption>
+            <thead>
+                <th>1</th>  
+                <th>2</th>
+                <th>3</th>  
+                <th>4</th>
+                <th>5</th>    
+            </thead>
+            <tbody>
+                <tr>
+                    <td>7</td>
+                    <td>3</td>
+                    <td>9</td>
+                    <td>9</td>
+                    <td>7</td>
+                </tr>
+                <tr>
+                    <td>0</td>
+                    <td>3</td>
+                    <td>9</td>
+                    <td>5</td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>4</td>
+                    <td>3</td>
+                    <td>2</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>0</td>
+                    <td>6</td>
+                    <td>0</td>
+                    <td>1</td>
+                    <td>7</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>6</td>
+                    <td>8</td>
+                    <td>2</td>
+                    <td>9</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                    <td>4</td>
+                    <td>5</td>
+                </tr>
+            </tfoot>
+        </table>
+    </body>
+</html>
