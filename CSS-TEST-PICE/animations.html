@@ -3,40 +3,79 @@
     <head>
         <style>
             #container{
-                background-image: url(puppybackground.jpg);
+                position:relative;
+                background-color:cornflowerblue;
                 width:600px;
                 height:400px;
+                box-sizing: border-box;
                 
             }
-            #capa1{                
-                width:300px;
-                height:200px;
-                background-color:red;
-            }
-            #capa1:hover{
-
-            }
-            #capa2{
-                position: absolute;
-                left:308px;
-                top:8px;
+            #capa1{ 
+                background-image: url(puppybackground.jpg);
+                background-repeat: no-repeat;
+                background-attachment: local;
+                background-position: top left;                              
                 width:150px;
                 height:100px;
                 background-color:red;
+                transition: width 2s, height 2s;
+
+            }
+            #capa1:hover{
+                /*background-color:green;*/
+                width: 300px;
+                height: 200px;
+            }
+            #capa2{
+                background-image: url(puppybackground.jpg);
+                background-repeat: no-repeat;
+                background-attachment: local;
+                background-position: top right;
+                position: absolute;
+                top:0px;
+                right:0px;
+                width:150px;
+                height:100px;                
+                transition: width 2s, height 2s;                
+            }
+            #capa2:hover{               
+                width: 300px;
+                height: 200px;
+                
             }
             #capa3{
-                
-                width:300px;
-                height:200px;
+                background-image: url(puppybackground.jpg);
+                background-repeat: no-repeat;
+                background-attachment: local;
+                background-position: bottom left;
+                position: absolute;
+                bottom: 0px;
+                left: 0px;
+                width:150px;
+                height:100px;
                 background-color:red;
+                transition: width 2s, height 2s;
+            }
+            #capa3:hover{
+                width: 300px;
+                height: 200px;                
             }
             #capa4{
+                background-image: url(puppybackground.jpg);
+                background-repeat: no-repeat;
+                background-attachment: local;
+                background-position: bottom right;
                 position: absolute;
-                left:308px;
-                top:208px;
-                width:300px;
-                height:200px;
+                bottom: 0px;
+                right: 0px;                
+                width:150px;
+                height:100px;
                 background-color:red;
+                transition: width 2s, height 2s;
+            }
+            #capa4:hover{
+                width: 300px;
+                height: 200px;                
             }
         </style>
     </head>
