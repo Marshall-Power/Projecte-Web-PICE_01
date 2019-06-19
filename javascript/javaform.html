@@ -4,16 +4,17 @@
         <meta charset="utf-8">  
         <link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.css">
         <script>
-            function saludar(){
+            function write(){
                 var nom = document.getElementById("pnom");
-                alert(nom.value);
+                var enviamentinnerHTML=nom.value;
             }
         </script>
     </head>
     <body>
         <form name="form1">
             nom:<input type="text" name="nom" id="pnom"><br>
-            <input type="button" onclick="saludar()" value="Enviar">
+            <input type="button" onclick="write()" value="Enviar">
         </form>
+        <p id="crack">Enviament:</p>
     </body>
 </html>
