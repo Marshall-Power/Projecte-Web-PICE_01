@@ -1,9 +1,63 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta charset="utf-8">  
+        <link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.css">
+        <script src="https://kit.fontawesome.com/e6b3b4a7ec.js"></script>
+        <script>
+            function ctof(){
+                var celsius = document.forms["form1"]["celsius"].value;
+                var fahrenheit = celsius*1.8 + 32;
+                alert(celsius + " graus Celsius" + " són "+ fahrenheit +" graus Fahrenheit");
+            }
+            function ftoc(){
+                var fahrenheit = document.forms["form2"]["farenheit"].value;
+                var celsius = (fahrenheit-32)*1.8;
+                alert(fahrenheit + " graus Fahrenheit" + " són "+ celsius +" graus Celcius");                
+            }
+            
+            
+        </script>
+
+        <style>
+            h1{
+                background-color:lightblue;
+            }
+            #ctof{
+                background-color:lightgreen;
+            }
+            #ftoc{
+                background-color:lightsalmon;
+            }
+            
+        </style>
+        
         
     </head>
     <body>
-        <input type="button" onClick="Alert('Hola')">
+        <div class="container">
+            <div class="row" id="header">
+                <div class="col-md-12"><h1>Calculadora de Celcius a Fahrenheit i viceversa  <i class="fas fa-thermometer-half"></i></h1></div>
+            </div>
+            <div class="row">
+                <div class="col-md-6" id="ctof">
+                    <form name="form1" id="form1">
+                        Celcius:<input type="text" name="celsius">
+                        <input class="btn btn-info" type="button" name="EnvCelsius" value="Enviar" onclick="ctof()">
+                    </form>
+                </div>
+                <div class="col-md-6" id="ftoc">
+                    <form name="form2" id="form2">
+                        Farenheit:<input type="text" name="farenheit">
+                        <input class="btn btn-info" type="button" name="EnvFarenheit" value="Enviar" onclick="ftoc()">
+                    </form> 
+                </div>
+            </div>
+
+        </div>
+        
+
+        
+       
     </body>
 </html>
