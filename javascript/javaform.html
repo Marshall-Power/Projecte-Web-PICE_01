@@ -4,17 +4,30 @@
         <meta charset="utf-8">  
         <link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.css">
         <script>
-            function write(){
-                var nom = document.getElementById("pnom");
-                
+            function MostrarGat(){
+                var imatge = document.getElementById("animal");
+                imatge.src="https://image.shutterstock.com/image-photo/portrait-surprised-cat-scottish-straight-260nw-499196506.jpg";
+                return false;
             }
+            function MostrarGos(){
+                var imatge = document.getElementById("animal");
+                imatge.src="https://www.kimballstock.com/images/dog-stock-photos.jpg";
+                return false;
+            }
+            function MostrarCavall(){
+                var imatge = document.getElementById("animal");
+                imatge.src="https://images.pexels.com/photos/1996333/pexels-photo-1996333.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500";
+                return false;
+            }
+            
         </script>
     </head>
     <body>
-        <form name="form1">
-            nom:<input type="text" name="nom" id="pnom"><br>
-            <input type="button" onclick="write()" value="Enviar">
-        </form>
-        <p id="crack">Enviament:</p>
+        <div id="alo"> 
+            <img id="animal" src="https://image.shutterstock.com/image-photo/portrait-surprised-cat-scottish-straight-260nw-499196506.jpg " alt="Animal" id="gatito">
+        </div>
+        <a href="#" onclick="MostrarGat()"> Gat</a>
+        <a href="#" onclick="MostrarGos()"> Gos</a>
+        <a href="#" onclick="MostrarCavall()"> Cavall</a>
     </body>
 </html>
