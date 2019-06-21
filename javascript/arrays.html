@@ -2,14 +2,73 @@
 <html>
     <head>
         <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.css">
+        <style>
+            #taula,th,td{
+                border: 1 ;
+                border-style:solid;
+            }
+        </style>
         <script>
-            var mesos=["Gener","Febrer","Març","Abril","Maig","Juny","Juliol","Agost","Setembre","Octubre","Novembre","Desembre"]
-            var d = new Date();
-            var mes = d.getMonth();
-            document.write(mesos[mes]);
+            var TaulaPreus = new Array(3);
+
+            for (var i = 0; i < TaulaPreus.length; i++) {
+                TaulaPreus[i] = new Array(4);
+            }
+            TaulaPreus[0][0]="4€";
+            TaulaPreus[0][1]="5€";
+            TaulaPreus[0][2]="6€";
+            TaulaPreus[0][3]="7€";
+            TaulaPreus[1][0]="4,5€";
+            TaulaPreus[1][1]="5,5€";
+            TaulaPreus[1][2]="6,5€";
+            TaulaPreus[1][3]="7,5€";
+            TaulaPreus[2][0]="5€";
+            TaulaPreus[2][1]="6€";
+            TaulaPreus[2][2]="7€";
+            TaulaPreus[2][3]="8€";
+
+            function calcularpreu(){
+                var x = document.getElementById("transport").value;
+                var y = document.getElementById("desti").value;
+                document.getElementById("total").value = TaulaPreus[x][y];
+            }
         </script>
     </head>
     <body>
+        
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <label for="desti">Destí:</label>
+                    <select class="browser-default custom-select" id="desti" onchange="calcularpreu()">
+                        <option selected value="0">Peninsula</option>
+                        <option value="1">Balears</option>
+                        <option value="2">Canaries</option>
+                        <option value="3">Estranger</option>
+                    </select>
+                    <label for="transport">Transport:</label>
+                    <select class="browser-default custom-select" id="transport" onchange="calcularpreu()">
+                        <option selected value="0">Correus</option>
+                        <option value="1">SEUR</option>
+                        <option value="2">UPS</option>
+                    </select>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="4€" id="total" readonly>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <table id="taula">
+                        <th><td>Correus</td><td>SEUR</td><td>UPS</td></th>
+                        <tr><td>Peninsula</td><td>4€</td><td>4.5€</td><td>5€</td></tr>
+                        <tr><td>Balears</td><td>5€</td><td>5.5€</td><td>6€</td></tr>
+                        <tr><td>Canaries</td><td>6€</td><td>6.5€</td><td>7€</td></tr>
+                        <tr><td>Extranger</td><td>7€</td><td>7.5€</td><td>8€</td></tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+        
 
     </body>
 </html>
