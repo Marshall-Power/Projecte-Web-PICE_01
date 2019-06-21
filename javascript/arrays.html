@@ -3,8 +3,10 @@
     <head>
         <meta charset="utf-8">
         <script>
-            var colors = ["vermell","verd","negre","groc","gris","marró","blau"];
-            document.write(colors[3]);
+            var mesos=["Gener","Febrer","Març","Abril","Maig","Juny","Juliol","Agost","Setembre","Octubre","Novembre","Desembre"]
+            var d = new Date();
+            var mes = d.getMonth();
+            document.write(mesos[mes]);
         </script>
     </head>
     <body>
