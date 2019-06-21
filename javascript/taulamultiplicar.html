@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.css">
+        <script>
+            function calcular(){
+                var i = 0;
+                var taula=document.getElementById("taula");
+                var PrimerNum = document.getElementById("1rnum").value;
+                var codi="";
+                codi += "<table border=1 width='100px'>"
+                for (i=1; i<11; i++){
+                    codi += "<tr> <td>" + i + "</td> <td>" + PrimerNum + "</td> <td>" + i*PrimerNum + "</td> </tr>";
+                    
+                }
+                codi += "</table>"
+                taula.innerHTML = codi;
+            }
+            
+        </script>
+
+    </head>
+    <body>
+        <label for="1rnum">Número de la taula de multiplicar:</label>
+        <input type="number" id="1rnum" min="1" placeholder="1" value="1">
+        <button class="btn btn-info" onclick=calcular();>Calcular </button>
+        <div id="taula"></div>
+    </body>
+</html>
