@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.css">
+        <script>
+            function Producte(nom,referencia,descripcio,preu,foto){
+                this.nom = nom;
+                this.referencia = referencia;
+                this.descripcio = descripcio;
+                this.preu = preu;
+                this.foto = foto;
+            }
+
+            var platan = new Producte("Platan","3","Platan de canaries","0.10€","https://hips.hearstapps.com/es.h-cdn.co/quoes/images/naturaleza/platano-hilillos-floema/1349047-1-esl-ES/para-que-sirven-los-hilillos-de-los-platanos.jpg?resize=768:*");
+            var poma = new Producte("Poma","2","Poma de Girona","0,5€","https://images-na.ssl-images-amazon.com/images/I/81xQBb5jRzL._SY355_.jpg")
+            var pera = new Producte("Pera","3","Pera de Girona","0,3€","data:image/jpeg;base64,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")
+            
+            function producteplatan(){
+                document.getElementById("fruita").innerHTML = platan.nom;
+                document.getElementById("nref").innerHTML = platan.referencia;
+                document.getElementById("descripcio").innerHTML = platan.descripcio;
+                document.getElementById("preu").innerHTML = platan.preu;
+                document.getElementById("fruitafoto").innerHTML = "<img src="+platan.foto+">";
+            }
+        
+        </script>
+        <style>
+            td{
+                text-align:right;
+            }
+        </style>
+    </head>
+    <body>
+        <button class="btn btn-info" onclick="producteplatan()">Platan</button>
+        <button class="btn btn-info">Poma</button>
+        <button class="btn btn-info">Pera</button>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <table class="table">
+                        <th>
+                            <td>Fruita</td>
+                            <td>Número de Referencia</td>
+                            <td>Descripció</td>
+                            <td>Preu</td>
+                        </th>
+                        <tr>
+                            <td></td>
+                            <td id="fruita"></td>
+                            <td id="nref"></td>
+                            <td id="descripcio"></td>
+                            <td id="preu"></td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="col-md-4" id="fruitafoto"></div>
+            </div>
+            
+        </div>
+
+    </body>
+    
+</html>
