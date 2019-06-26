@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.css">
+	<script src="../jquery.js"></script>
+  <title>Llisat destacat</title>
+  <style>
+    #contenidorproducte, #randomtext{
+      margin-top:30px;
+    }
+    img {
+      max-width: 100%;
+      max-height: 100%;
+    }
+    .img-thumbnail{
+      width:22%;
+      height:auto;
+    }
+    #miniatures{
+      height:50px;
+    }
+    .selected{
+      border: 3px solid red;
+    }
+  </style>
+  <script>
+    function Producte(nom,referencia,descripcio,preu,foto){
+      this.nom = nom;
+      this.referencia = referencia;
+      this.descripcio = descripcio;
+      this.preu = preu;
+      this.foto = foto;
+    }
+    var playstation = new Producte("Playstation 4","10315798","Playstation 4 pro amb 1TB de enmagatzemmatge i un mando","400€","ps4.png");
+
+
+    $(document).ready(function(){
+      $("").click(function(){
+        
+      });
+    });
+
+    function producteplaystation(){
+      document.getElementById("nomproducte").innerHTML = playstation.nom;
+      document.getElementById("refproducte").innerHTML = playstation.referencia;
+      document.getElementById("descripcioproducte").innerHTML = playstation.descripcio;
+      document.getElementById("preuproducte").innerHTML = playstation.preu;
+      document.getElementById("mainfoto").innerHTML = "<img src="+playstation.foto+">";
+    }
+
+    $(document).ready(function(){
+      $("#ps4").click(function(){
+        $("#mainfoto").replaceWith("<div id="+"mainfoto"+"><img src="+"ps4.png"+"> </div>");
+        $("#ps4").addClass("selected");
+        $("#ps4back").removeClass("selected");
+        $("#ps4spiderman").removeClass("selected");
+        $("#ps4white").removeClass("selected");        
+      });
+      
+      $("#ps4back").click(function(){
+        $("#mainfoto").replaceWith("<div id="+"mainfoto"+"><img src="+"ps4back.jpeg"+"> </div>");
+        $("#ps4back").addClass("selected");
+        $("#ps4").removeClass("selected");
+        $("#ps4spiderman").removeClass("selected");
+        $("#ps4white").removeClass("selected"); 
+      });
+
+      $("#ps4spiderman").click(function(){
+        $("#mainfoto").replaceWith("<div id="+"mainfoto"+"><img src="+"ps4spiderman.jpg"+"> </div>");
+        $("#ps4spiderman").addClass("selected");
+        $("#ps4back").removeClass("selected");
+        $("#ps4").removeClass("selected");
+        $("#ps4white").removeClass("selected"); 
+      });
+
+      $("#ps4white").click(function(){
+        $("#mainfoto").replaceWith("<div id="+"mainfoto"+"><img src="+"ps4white.jpg"+"> </div>");
+        $("#ps4white").addClass("selected");
+        $("#ps4back").removeClass("selected");
+        $("#ps4spiderman").removeClass("selected");
+        $("#ps4").removeClass("selected"); 
+      });
+    });
+  </script>
+</head>
+<body onload="producteplaystation()">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3">
+        <button class="btn btn-info" id="Hivern">Hivern</button></div>
+      <div class="col-md-3">
+        <button class="btn btn-warning" id="Tardor">Tardor</button></div>
+      <div class="col-md-3">
+        <button class="btn btn-sucess" id="Primavera">Primavera</button>
+      </div>
+      <div class="col-md-3">
+        <button class="btn btn-danger" id="Estiu">Estiu</button>
+      </div>
+    </div>
+    <div class="row" id="contenidorproducte">
+        <div class="col-md-4" id="fotoproducte">
+          <div id="mainfoto">
+
+          </div>
+          <div id="miniatures">
+            <div class="img-thumbnail" id="ps4"><img src="ps4.png"></div>
+            <div class="img-thumbnail" id="ps4back"><img src="ps4back.jpeg"></div>
+            <div class="img-thumbnail" id="ps4spiderman"><img src="ps4spiderman.jpg"></div>
+            <div class="img-thumbnail" id="ps4white"><img src="ps4white.jpg"></div>
+          </div>
+        </div>
+
+        <div class="col-md-8">
+            <p id="nomproducte">Nom producte</p>
+            <p id="refproducte">referencia producte</p>
+            <p id="descripcioproducte">descripcio producte</p>
+            <p id="preuproducte">preu producte</p>                
+        </div>
+        
+    </div>
+    <div class="row" id="randomtext">
+      Ad non est labore excepteur non commodo tempor est. Excepteur sint ex ex anim quis. Deserunt irure quis ad ea amet magna Lorem mollit tempor. Elit eiusmod ad consequat in amet consectetur laboris labore.
+
+      Occaecat culpa excepteur laborum in officia eu voluptate amet eu incididunt enim. Minim labore id sunt nisi velit labore amet. Adipisicing irure duis reprehenderit do veniam irure.
+
+      Incididunt tempor deserunt laborum ipsum ex anim cillum quis deserunt nostrud tempor Lorem. Ut nisi fugiat voluptate aliqua culpa aute adipisicing do do cillum dolore est. Pariatur commodo officia tempor voluptate dolor adipisicing est mollit officia proident ea aliquip sunt esse.
+
+      Elit ut id fugiat eu cillum do. Voluptate incididunt laboris consequat esse excepteur proident minim mollit occaecat aliqua esse et commodo. Exercitation labore anim dolor non pariatur consequat exercitation commodo. Deserunt excepteur culpa esse consectetur ipsum cillum. Tempor dolore amet aute labore irure dolore officia Lorem commodo laboris excepteur labore.
+    </div>
+  </div>
+  
+</body>
+</html>
