@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>JQUERY 2</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.css">
+  <script src="../jquery.js"></script>
+  <style>
+    #capa1{
+      height:300px;
+      width:300px;
+      background-color: rgb(117, 223, 31);
+      position: absolute;
+      left: 100px;
+    }
+    #capa2{
+      height:300px;
+      width:300px;
+      background-color:rgb(13, 69, 71);
+      position: absolute;
+      left:450px;
+    }
+    #capa3{
+      height:300px;
+      width:300px;
+      background-color:rgb(221, 103, 60);
+      position: absolute;
+      left:800px;
+    }
+    #amagar{
+      position: absolute;
+      left:550px;
+      top:350px;
+    }
+    #mostrar{
+      position:absolute;
+      left:650px;
+      top:350px;
+    }
+  </style>
+  <script>
+    
+    $(document).ready(function(){
+      $("#butoamagar").click(function(){
+        $("#capa1").toggle(1000);
+        $("#capa2").delay(1000).toggle(1000);
+        $("#capa3").delay(2000).toggle(1000);
+      });
+
+    });
+    
+  </script>
+ 
+</head>
+<body>
+  <div id="capa1"></div>
+  <div id="capa2"></div>
+  <div id="capa3"></div>
+  <div id="amagar">
+    <button class="btn btn-info" id="butoamagar">Amagar/Mostrar</button>
+  </div>
+  
+</body>
+</html>
