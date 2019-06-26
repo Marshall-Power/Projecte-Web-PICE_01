@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.css">
+  <script src="../jquery.js"></script>
+  <title>Gelateria</title>
+  <style>
+    img{
+      padding-top:15px;
+      display:none;
+    }
+    #selectortipusgelat, #selectortipusgranitzat, #selectortipuscrep,#selectorgustosgelat,#selectorguarniciogelat{
+      display:none;
+    }
+    #preutotal{
+      width: 15%;
+      display: inline;
+    }
+    
+  </style>
+
+  <script>
+    $(document).ready(function(){
+      var preutotal = 0;
+      var preutipusgelat = 0;
+      var preugustgelat = 0;
+      var preuguarniciogelat = 0;
+
+      $("select#snack").change(function(){
+        var snack = $("select#snack").val();
+        if(snack == "Gelat"){
+          $("#flechadreta1").show();
+          $("#selectortipusgelat").show();
+          $("#selectortipusgranitzat").hide();
+          $("#selectortipuscrep").hide();
+          $("#selectorgustosgelat").hide();
+        }else if (snack == "Granitzat"){
+          $("#flechadreta1").show();
+          $("#selectortipusgranitzat").show();
+          $("#selectortipusgelat").hide();
+          $("#selectortipuscrep").hide();
+          $(".gelats").hide();
+        }else if(snack == "Crep"){
+          $("#flechadreta1").show();
+          $("#selectortipuscrep").show();
+          $("#selectortipusgelat").hide();
+          $("#selectortipusgranitzat").hide();
+          $(".gelats").hide();
+        }else{
+          $("#flechadreta1").hide();
+          $("#selectortipusgelat").hide();
+          $("#selectortipusgranitzat").hide();
+          $("#selectortipuscrep").hide();
+          $("#flechadreta2").hide();
+          $("#flechadreta3").hide();
+          $(".gelats").hide();
+        }
+        $("#flechadreta2").hide();
+        $("#flechadreta3").hide();
+      });
+
+      $("select#tipusgelat").change(function(){
+        var tipusgelat= $("select#tipusgelat").val();
+        preutipusgelat = 0;
+        if(tipusgelat == "Cucurutxo"){
+          $("#flechadreta2").show();
+          $("#selectorgustosgelat").show();
+          preutipusgelat = 8;
+        }else if(tipusgelat == "Tarrina"){
+          $("#flechadreta2").show();
+          $("#selectorgustosgelat").show();      
+          preutipusgelat = 4; 
+        }else{
+          $("#flechadreta2").hide();
+          $("#flechadreta3").hide();
+          $("#selectorgustosgelat").hide();
+          $("#selectorguarniciogelat").hide();
+        }
+        console.log(preutipusgelat);
+      });
+
+      $("select#gustosgelat").change(function(){
+        var gustgelat = $("select#gustosgelat").val();
+        preugustgelat = 0;
+        if(gustgelat == "Vanilla"){
+          $("#flechadreta3").show();
+          $("#selectorguarniciogelat").show();
+          preugustgelat = 2;
+        }else if(gustgelat == "Maduixa"){
+          $("#flechadreta3").show();
+          $("#selectorguarniciogelat").show(); 
+          preugustgelat = 3;   
+        }else if(gustgelat == "Xocolata"){
+          $("#flechadreta3").show();
+          $("#selectorguarniciogelat").show(); 
+          preugustgelat = 4;
+        }else{
+          $("#flechadreta3").hide();
+          $("#selectorguarniciogelat").hide();
+        }
+        console.log(preugustgelat);
+      });
+
+      $("select#guarniciogelat").change(function(){
+        var guarniciogelat = $("select#guarniciogelat").val();
+        preuguarniciogelat = 0;
+        preutotal = 0;
+        if(guarniciogelat == "Cirera"){
+          preuguarniciogelat = 1; 
+          console.log(preuguarniciogelat);
+        }else if(guarniciogelat == "Xocolata desfeta"){
+          preuguarniciogelat = 2;
+          console.log(preuguarniciogelat);
+        }else if(guarniciogelat == "Xarop maduixa"){
+          preuguarniciogelat = 3;
+          console.log(guarniciogelat);
+        }else{
+          preuguarniciogelat = 0;
+        }
+      });
+
+      $("#calcularpreu").click(function(){
+        if(preutipusgelat > 0 && preugustgelat > 0 && preuguarniciogelat > 0){
+          preutotal = preutipusgelat + preugustgelat + preuguarniciogelat + "€";
+          console.log(preutotal);
+          $("#preutotal").append(preutotal);
+        }else {
+          alert("Acaba de configurar el teu snack!");
+        }
+      });
+      
+    });
+
+   
+
+  </script>
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-2">
+        <div class="form-group" id="snackselector">
+          <label for="snack">Tría el tipus de snack</label>
+          <select class="form-control" id="snack">
+            <option>Tria una opció</option>
+            <option>Gelat</option>
+            <option>Granitzat</option>
+            <option>Crep</option>            
+          </select>          
+        </div>
+      </div>
+      <div class="col-md-1">
+          <img src="arrow-pointing-to-right.png" class="img-fluid" id="flechadreta1">
+      </div>
+          
+      <div class="col-md-2">
+        <div class="form-group gelats" id="selectortipusgelat">
+          <label for="tipusgelat">Tria el tipus de Gelat</label>
+          <select class="form-control" id="tipusgelat">
+            <option>Tria contenidor</option>
+            <option>Cucurutxo</option>
+            <option>Tarrina</option>
+          </select>          
+        </div>
+        <div class="form-group" id="selectortipusgranitzat">
+          <label for="tipusgranitzat">Tria mida granitzat</label>
+          <select class="form-control" id="tipusgranitzat">
+            <option>Tria una mida</option>
+            <option>Petit</option>
+            <option>Mitjà</option>
+            <option>Gran</option>
+          </select>          
+        </div>
+        <div class="form-group" id="selectortipuscrep">
+            <label for="tipusgranitzat">Tria el tipus de crep</label>
+            <select class="form-control" id="tipuscrep">
+              <option>Tria la crep</option>
+              <option>Dolça</option>
+              <option>Salada</option>
+            </select>          
+        </div>
+
+      </div>
+      <div class="col-md-1">
+          <img src="arrow-pointing-to-right.png" class="img-fluid" id="flechadreta2">
+      </div>
+      <div class="col-md-2">
+        <div class="form-group gelats" id="selectorgustosgelat">
+          <label for="tipusgelat">Tria el gust del gelat</label>
+          <select class="form-control" id="gustosgelat">
+            <option>Tria el gust</option>
+            <option>Vanilla</option>
+            <option>Maduixa</option>
+            <option>Xocolata</option>
+          </select>          
+        </div>
+
+      </div>
+      <div class="col-md-1">
+          <img src="arrow-pointing-to-right.png" class="img-fluid" id="flechadreta3">
+      </div>
+      <div class="col-md-3">
+        <div class="form-group gelats" id="selectorguarniciogelat">
+          <label for="guarniciogelat">Tria la guarnició</label>
+          <select class="form-control" id="guarniciogelat">
+            <option>Tria una guarnició</option>
+            <option>Cirera</option>
+            <option>Xocolata desfeta</option>
+            <option>Xarop maduixa</option>
+          </select>  
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12" id="total">
+      <label for="preutotal">Preu total:</label>
+      <input class="form-control" type="text" id="preutotal" readonly>
+      <button class="btn btn-info" id="calcularpreu">Calcular preu</button>
+    </div>
+  </div>
+</body>
+</html>
