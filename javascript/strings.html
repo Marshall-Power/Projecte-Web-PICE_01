@@ -9,12 +9,19 @@
 	<script>
 		function mirar_text(){
 			var t = document.getElementById("text").value;
-			console.log(t.indexOf(""));
+			var rex =/[a-z]{4}/;
+			if (t.toLowerCase() == "abc"){
+				alert("Contrasenya correcta");
+			}
+			//alert("");
 		}
 	</script>
 </head>
 <body>
-	<input type="text" id="text">
-  <button class="btn btn-info" onclick=mirar_text()>Enviar</button>
+	<input type="password" id="text">
+	<button class="btn btn-info" onclick=mirar_text()>Enviar</button>
+	
+	
 </body>
 </html>
+
