@@ -20,22 +20,26 @@
       text-align: center;
       padding-top:3px;  */
     }
-    
 
-    button{
+    #animar{
       position: absolute;
       top: 400px;
       left: 550px;
+    }
+    #reiniciar{
+      position: absolute;
+      top: 400px;
+      left: 700px;
     }
 
 
   </style>
   <script>
     $(document).ready(function(){
-      var percent = 20;
+      var percent = 25;
       $("#animar").click(function(){
         if(percent < 100){
-          percent = percent + 20;
+          percent = percent + 25;
           $("#barraprogres").animate({width: percent+"%"},100);
           $("#barraprogres").empty();
           $("#barraprogres").append(percent+"%");
@@ -44,7 +48,14 @@
         }
           
       });
-    });
+
+      $("#reiniciar").click(function(){ 
+        percent = 0;
+        $("#barraprogres").animate({width: percent+"%"},500);
+        $("#barraprogres").empty();
+        $("#barraprogres").append(percent+"%");
+      });
+  });
   </script>
 </head>
 <body>
@@ -52,14 +63,15 @@
     <div class="row">
       <div class="col-md-12 center-block">
           <div class="progress">
-              <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" id="barraprogres">20%</div>
+              <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" id="barraprogres">25%</div>
             </div>
       </div>
     </div>
   </div>
   
 
-<button class="btn btn-info" id="animar">Animar</button>
+<button class="btn btn-success" id="animar">Progresar</button>
+<button class="btn btn-danger" id="reiniciar">Reinicar</button>
   
 </body>
 </html>
