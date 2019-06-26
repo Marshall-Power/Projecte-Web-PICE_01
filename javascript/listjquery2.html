@@ -83,21 +83,32 @@
         $("#ps4spiderman").removeClass("selected");
         $("#ps4").removeClass("selected"); 
       });
+
+      $("#estiu").click(function(){
+        $("mainfoto").load("data.html #fotoxbox");
+        $("#nomproducte").load("data.html #producte1");
+        $("#refproducte").load("data.html #referencia1");
+        $("#descripcioproducte").load("data.html #descripcio1");
+        $("#preuproducte").load("data.html #preu1");
+        $("#randomtext").load("data.html #text1");
+      });
     });
+
+    
   </script>
 </head>
 <body onload="producteplaystation()">
   <div class="container">
     <div class="row">
       <div class="col-md-3">
-        <button class="btn btn-info" id="Hivern">Hivern</button></div>
+        <button class="btn btn-info" id="hivern">Hivern</button></div>
       <div class="col-md-3">
-        <button class="btn btn-warning" id="Tardor">Tardor</button></div>
+        <button class="btn btn-warning" id="tardor">Tardor</button></div>
       <div class="col-md-3">
-        <button class="btn btn-sucess" id="Primavera">Primavera</button>
+        <button class="btn btn-sucess" id="primavera">Primavera</button>
       </div>
       <div class="col-md-3">
-        <button class="btn btn-danger" id="Estiu">Estiu</button>
+        <button class="btn btn-danger" id="estiu">Estiu</button>
       </div>
     </div>
     <div class="row" id="contenidorproducte">
