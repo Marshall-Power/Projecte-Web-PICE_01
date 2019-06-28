@@ -17,6 +17,9 @@
       list-style-type:none;
       padding:0;
     }
+    tr:nth-child(even) {
+    background-color: #dddddd;
+    }
 
   </style>
   <script>
@@ -27,7 +30,6 @@
           method:"GET",
           dataType:"JSON",
           success:function(dades,status){
-            //console.log(dades.ParkingList.Parking)  
             $.each(dades.ParkingList.Parking,function(i, item){
               $("tbody").append("<tr id=tr"+i+"></tr>");
               $("#tr"+i).append("<td>"+item.Address+"</td>");
