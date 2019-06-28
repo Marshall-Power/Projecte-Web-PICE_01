@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.css">
+	<script src="../jquery.js"></script>
+  <title>JSON EXTERN ESTACIONS BICI</title>
+  <style>
+    /*table{
+      border: 1px solid;
+    }
+    td{
+      border: 1px solid;
+    }*/
+  </style>
+  <script>
+    $(document).ready(function(){
+      $("#importar").click(function(){
+        $.ajax({
+          url:"station_information.json",
+          method:"GET",
+          dataType:"JSON",
+          success:function(dades,status){
+            //console.log(dades.data.stations)
+            $.each(dades.data.stations,function(i, item){
+              $("#taula").append("<tr id=tr"+i+"></tr>")
+              $("#tr"+i).append("<td>"+item.address+"</td>")
+              $("#tr"+i).append("<td><a href=http://maps.google.com/maps?q="+item.lat+","+item.lon+">"+item.lat+" | "+item.lon+"</a></td>")
+              //$("#tr"+i).append("<td> "+item.lat+" | "+item.lon+"   </td>")
+              $("#tr"+i).append("<td>"+item.capacity+"</td>")
+            });
+          },
+          error:function(){
+            alert("No xuta")
+          }
+        });
+      });
+    });
+  </script>
+</head>
+<body>
+  <table class="table"  id="taula">
+    <thead class="thead-dark">
+      <tr>
+        <th>Adreça</th>
+        <th>Lat-Lon</th>
+        <th>Capacitat</th>
+      </tr>
+    </thead>
+    <div>
+     
+    
+    </div>
+    
+  </table>
+  <button class="btn btn-info" id="importar">Importar data</button>
+</body>
+</html>

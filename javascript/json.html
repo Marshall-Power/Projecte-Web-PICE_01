@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.css">
+	<script src="../jquery.js"></script>
+  <title>JSON</title>
+  <style>
+  </style>
+  <script>
+    $(document).ready(function(){
+      $("#importar").click(function(){
+        $.ajax({
+          url:"classjson.json",
+          method:"GET",
+          dataType:"JSON",
+          success:function(data,status){
+            $("#nom").html(data.nom);
+            $("#preu").html(data.preu);
+          },
+          error:function(){
+            alert("No xuta")
+          }
+          
+        })
+      });
+    });
+  </script>
+</head>
+<body>
+  <p>Nom:</p>
+  <p id="nom"></p>
+  <p>Preu:</p>
+  <p id="preu"></p>
+  <button class="btn btn-info" id="importar">Importar JSON</button>
+</body>
+</html>

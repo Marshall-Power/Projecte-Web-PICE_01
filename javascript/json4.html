@@ -1,0 +1,75 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.css">
+	<script src="../jquery.js"></script>
+  <title>OPENDATA.JSON</title>
+  <style>
+    td.tr{
+      border: 1px solid;
+    }
+    li{
+      border-bottom: 1px solid;
+    }
+    ul{
+      list-style-type:none;
+      padding:0;
+    }
+
+  </style>
+  <script>
+    $(document).ready(function(){
+      $("#importar").click(function(){
+        $.ajax({
+          url:"opendata.json",
+          method:"GET",
+          dataType:"JSON",
+          success:function(dades,status){
+            //console.log(dades.ParkingList.Parking)  
+            $.each(dades.ParkingList.Parking,function(i, item){
+              $("tbody").append("<tr id=tr"+i+"></tr>");
+              $("#tr"+i).append("<td>"+item.Address+"</td>");
+              $("#tr"+i).append("<td>"+item.Open+"-"+item.Close+"</td>");
+              $.each(item.ParkingPriceList,function(x,vehicle){
+                if(Array.isArray(vehicle)){
+                  $("#tr"+i).append("<ul id=ul"+i+"></ul>")
+                  $.each(vehicle,function(k,item){
+                    $("#ul"+i).append("<li>"+item.VehicleType+" són "+item.Amount+" per minut</li>")
+                  });
+                }else{
+                  $("#tr"+i).append("<ul id=ul"+i+"></ul>")
+                  $("#ul"+i).append("<li>"+vehicle.VehicleType+" són "+vehicle.Amount+" per minut</li>")
+                };
+              });
+            });
+          },
+          error:function(){
+            alert("No xuta")
+          }
+          
+        });
+      });
+    });
+  </script>
+</head>
+<body>
+  <table class="table table-bordered"   id="taula">
+    <thead class="thead-dark">
+        <tr>
+            <th>Adreça</th>
+            <th>Horari</th>
+            <th>Tarifes</th>
+            <th>Adreça accés</th>
+          </tr>
+    </thead>
+    <tbody>
+
+    </tbody>
+    
+  </table>
+  
+  <button class="btn btn-info" id="importar">Importar JSON</button>
+</body>
+</html>
