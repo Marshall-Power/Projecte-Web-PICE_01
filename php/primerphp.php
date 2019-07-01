@@ -4,16 +4,33 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+  <link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.css">
+  <script src="../jquery.js"></script>
+  <title>PHP Table</title>
+  <style>
+  td{
+    padding:5px;
+    border: 1px solid grey;
+  }
+  </style>
+
 </head>
 <body>
-  <h1> titol principal </h1>
-  <p>Qui ea reprehenderit aliquip adipisicing laboris irure id est in. Ex ea irure et ex irure Lorem eu duis pariatur eiusmod nulla. Excepteur velit est esse proident mollit ex sit. Ex nisi deserunt do labore aliqua nostrud pariatur nulla aliquip minim culpa quis minim.
-
-      Proident consectetur irure reprehenderit consectetur quis sunt ut ad. Qui dolore laborum pariatur esse anim id commodo enim incididunt cupidatat. Exercitation nulla fugiat adipisicing aute nostrud sint veniam. Occaecat incididunt aute commodo proident aute occaecat. Esse eu qui eu officia pariatur ipsum do adipisicing ullamco excepteur exercitation tempor velit dolore. Sint aliquip culpa aliqua consectetur eu sunt ad.
-
-      Aliqua magna in voluptate minim eiusmod proident enim irure labore quis proident deserunt ex. Incididunt consequat et veniam nisi ullamco excepteur aliquip pariatur. Commodo pariatur ut dolor adipisicing. Aliquip qui minim cupidatat veniam nulla eu laboris.</p>
-  <?php echo "Hola";  ?>
+  <h1> Exercici php 1 </h1>
+  <label for="taula">Taula de multiplicar del 5 </label>
+  <table id="taula">
+    <tbody>
+    <?php 
+      $num = 5;      
+      for($i=1; $i<=10;$i++){ ?>
+        <tr> 
+          <td><?php echo $num;?></td>
+          <td><?php echo $i; ?></td>
+          <td><?php echo $num*$i; ?> </td>
+        </tr>
+    <?php } ?>
+    </tbody>
+  </table>
 
 </body>
 </html>
