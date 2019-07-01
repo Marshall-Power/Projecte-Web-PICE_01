@@ -7,8 +7,88 @@
   <link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.css">
 	<script src="../jquery.js"></script>
   <title>API Connection</title>
+  <style>
+    img{
+      width:100%;
+      height: auto;
+    }
+    repos{
+      float:left;
+    }
+    div{
+      width:300px;
+      height: auto;
+      
+    }
+    /*.owner{
+      
+    }*/   
+    
+  </style>
+  <script>
+    $(document).ready(function(){
+      $("#buscar").click(function(){
+        var nom = $("#usuari").val();
+        $.ajax({
+          url:"https://api.github.com/users/"+nom+"?client_id=6ccf6375f8d7bf8217e4&client_secret=6f298fcada33a6b2333ecc031fdcfa604c5452e1",
+          method:"GET",
+          dataType:"JSON",
+          success:function(json, result){
+            $("#avatar").append("<img src="+json.avatar_url+">");
+            $("#nom").append(json.name);console.log("Nom: "+json.name);
+            $("#followers").append("Seguidors: "+json.followers);
+            $("#following").append("Seguint: "+json.following);
+            $("#repos").append("Repos publiques: "+json.public_repos);
+          }
+        });
+      });
+    });
+
+    $(document).ready(function(){
+      $("#getjson").click(function(){
+        var nom = $("#usuari").val();
+        var desti = "https://api.github.com/users/"+nom+"/repos?client_id=6ccf6375f8d7bf8217e4&client_secret=6f298fcada33a6b2333ecc031fdcfa604c5452e1"
+        $.getJSON(desti,function(json){
+          console.log(json);
+          $.each(json,function(i,repo){
+            $("#fila").append("<div id=reponom"+i+"><h1> <a href="+repo.html_url+" target=_blank>"+repo.name+"</a><h1><div>");
+            $("#fila").append("<div> <img  id=repoownerimg"+i+" src="+repo.owner.avatar_url+"></div>");
+            $("#fila").append("<div id=repoowner"+i+" class=owner><h3>"+repo.owner.login+"</h3><div>");
+          });
+        });
+      });
+    });
+    
+    
+    
+
+  </script>
 </head>
 <body>
-  
+  <label for="usuari">Usuari:</label>
+  <form class="form">
+    <input type="text" id="usuari" value="vdomah">
+  </form>
+  <button id="buscar" class="btn btn-info">Buscar</button>
+  <button id="getjson" class="btn btn-info">Get Repos</button>
+  <div class="container" id="desti">
+    <div class="row">
+      <div class="col-md-3" id="avatar"></div>
+      <div class="col-md-4" id="dadesusuari">
+        <h1 id="nom"></h1>
+        <p id="followers"></p>
+        <p id="following"></p>
+        <p id="repos"></p>
+      </div>
+      <div class="col"></div>
+    </div>
+  </div>
+  <div class="container" id="container">
+    <div class="row" id="fila"></div>
+    
+  </div>
+    
+
+  </div>
 </body>
 </html>
