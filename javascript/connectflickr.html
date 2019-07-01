@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Connect flickr</title>
+  <link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.css">
+  <script src="../jquery.js"></script>
+  <style>
+    button,#form1{
+      display:inline;
+    }
+    #galeria{
+      padding:5px;
+      margin: 5px;
+    }
+    #navbar{
+      text-align: center;
+      position:sticky;
+      bottom: 0px;
+      margin-bottom:10px;
+    }
+  </style>
+  <script>
+    $(document).ready(function(){
+      $("#buscar").click(function(){
+        var etiqueta = $("#etiqueta").val();
+        var desti = "https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=ab7f73735506c220e24df81accb37c7a&tags="+etiqueta+"&per_page=6&format=json&nojsoncallback=1";
+        $.getJSON(desti,function(picsObject){
+          $.each(picsObject.photos.photo,function(i,picture){
+            $("#galeria").append("<div class='col-md-3 col-sm-4 col-xs-6'> <img class=img-responsive src=https://farm"+picture.farm+".staticflickr.com/"+picture.server+"/"+picture.id+"_"+picture.secret+".jpg class=img-responsive><p>"+picture.title+"</p></div>")
+          })
+        })
+      })
+    })
+
+    $(document).ready(function(){
+      $("a").click(function(){
+        var pagina = $("a").val();
+        var etiqueta = $("#etiqueta").val();
+        var desti = "https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=ab7f73735506c220e24df81accb37c7a&tags="+etiqueta+"&per_page=6&format=json&nojsoncallback=1";
+        $.getJSON(desti,function(picsObject){
+          $.each(picsObject.photos.photo,function(i,picture){
+            $("#galeria").append("<div class='col-md-3 col-sm-4 col-xs-6'> <img class=img-responsive src=https://farm"+picture.farm+".staticflickr.com/"+picture.server+"/"+picture.id+"_"+picture.secret+".jpg class=img-responsive><p>"+picture.title+"</p></div>")
+          })
+        })
+      })
+    })
+  </script>
+</head>
+<body>
+  <div class="container">
+    <div class="row" id="header">
+      <div class="col-md-12">
+        <form class="form" id="form1">
+          <label for="etiqueta">Etiqueta:</label>
+           <input type="text" id="etiqueta" value="girona">
+        </form>
+        <button id="buscar" class="btn btn-info">Buscar</button>
+      </div>                 
+    </div>
+    <div class="row" id="galeria"></div>
+      <div id="navbar">
+        <nav aria-label="Paginació">
+        <ul class="pagination">
+          </li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item"><a class="page-link" href="#">4</a></li>
+            <li class="page-item"><a class="page-link" href="#">5</a></li>
+            <li class="page-item"><a class="page-link" href="#">6</a></li>
+          </li>
+        </ul>
+      </nav>
+      </div>
+      </div>
+      
+    </div>
+    
+    
+
+  </div>
+    
+  </div>
+
+</body>
+</html>
