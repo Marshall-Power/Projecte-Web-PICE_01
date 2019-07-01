@@ -4,16 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.css">
+  <script src="../jquery.js"></script>
   <title>Plats a escollir</title>
   <script>
-    var $select = $("select");
-    $select.on("change", function() {
-        var selected = [];  
-        $.each($select, function(index, select) {           
-            if (select.value !== "") { selected.push(select.value); }
-        });         
-      $("option").prop("disabled", false);         
-      for (var index in selected) { $('option[value="'+selected[index]+'"]').prop("disabled", true); }
+    $(document).ready(function({
+      for(i=0;i<6;i++){
+        $("#formulari").append("<input type='number' name=n"+i+");
+      }
     });
   </script>
 </head>
