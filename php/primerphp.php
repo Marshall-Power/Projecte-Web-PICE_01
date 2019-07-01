@@ -16,19 +16,16 @@
 
 </head>
 <body>
-  <h1> Exercici php 1 </h1>
-  <label for="taula">Taula de multiplicar del 5 </label>
+  <label for="taula">Taula de multiplicar del <?php echo $num = $_POST["num"];?>  </label>
   <table id="taula">
     <tbody>
-    <?php 
-      $num = 5;      
-      for($i=1; $i<=10;$i++){ ?>
+      <?php for($i=1; $i<=10;$i++){ ?>
         <tr> 
           <td><?php echo $num;?></td>
           <td><?php echo $i; ?></td>
           <td><?php echo $num*$i; ?> </td>
         </tr>
-    <?php } ?>
+      <?php } ?>
     </tbody>
   </table>
 
