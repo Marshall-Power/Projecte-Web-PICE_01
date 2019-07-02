@@ -1,7 +1,3 @@
-<?php
-  setcookie("idioma","es", time()+60*60)
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,6 +7,11 @@
   <title>Document</title>
 </head>
 <body>
+  <a href="cookiefinal.php?idioma=es">Español</a>
+  <a href="cookiefinal.php?idioma=uk">English</a>
+  <a href="cookiefinal.php?idioma=cat">Català</a>
+ <?php
   
+ ?>
 </body>
 </html>
