@@ -32,10 +32,10 @@
   <form method="get" action="http://localhost/GitRepos/Projecte-Web-PICE_01/php/sqltest2.php">
     <label for="filesperpag">Files per página</label>
       <select id="filesperpag" class="form-control" name="mida">
-        <option> 10 </option>
-        <option> 20 </option>
-        <option> 30 </option>
-        <option> 40 </option>
+        <option <?php if(isset($_GET["mida"])){ $mida = $_GET["mida"];}else{$mida = 10; echo "selected";} ?>> 10 </option>
+        <option <?php if($mida == 20){echo "selected";}?>> 20 </option>
+        <option <?php if($mida == 30){echo "selected";}?>> 30 </option>
+        <option <?php if($mida == 40){echo "selected";}?>> 40 </option>
       </select>
     <input type="submit" value="Canviar"/>
   </form>
@@ -93,13 +93,6 @@
               echo "<li class='page-item'><a class='page-link' href=http://localhost/GitRepos/Projecte-Web-PICE_01/php/sqltest2.php?page=".$i."&mida=".$mida.">".$i."</a></li>";              
             }
           ?>
-
-          <!--<li class="page-item"><a class="page-link" href="http://localhost/GitRepos/Projecte-Web-PICE_01/php/sqltest2.php?page=1&mida=<?php echo $mida ?>">1</a></li>
-          <li class="page-item"><a class="page-link" href="http://localhost/GitRepos/Projecte-Web-PICE_01/php/sqltest2.php?page=2&mida=<?php echo $mida ?>">2</a></li>
-          <li class="page-item"><a class="page-link" href="http://localhost/GitRepos/Projecte-Web-PICE_01/php/sqltest2.php?page=3&mida=<?php echo $mida ?>">3</a></li>
-          <li class="page-item"><a class="page-link" href="http://localhost/GitRepos/Projecte-Web-PICE_01/php/sqltest2.php?page=4&mida=<?php echo $mida ?>">4</a></li>
-          <li class="page-item"><a class="page-link" href="http://localhost/GitRepos/Projecte-Web-PICE_01/php/sqltest2.php?page=5&mida=<?php echo $mida ?>">5</a></li>
-          -->
         </li>
       </ul>
     </nav>
