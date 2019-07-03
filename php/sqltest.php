@@ -44,7 +44,7 @@
   </thead>
   <tbody> 
     <?php   
-      if(isset($_GET["pagenum"])){
+      if(isset($_GET["pagenum"]){
         $pagina = $_GET["pagenum"];
         $query = "SELECT * FROM customers LIMIT $pagina, 20 ";
         $result = $con->query($query);
@@ -57,7 +57,8 @@
         }
       }
       else{
-        $query = "SELECT * FROM customers LIMIT 0, 20 ";
+        $pagina = 0;
+        $query = "SELECT * FROM customers LIMIT $pagina, 20 ";
         $result = $con->query($query);
         if ($result->num_rows==0){
           echo "No s'han trobat dades";
