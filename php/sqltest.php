@@ -20,6 +20,9 @@
   <script src="../jquery.js"></script>
   <title>SQL Test</title>
   <style>
+    table{
+      /*display:none;*/
+    }
     #navbar{
       text-align: center;
       position:sticky;
@@ -29,62 +32,46 @@
   </style>
 </head>
 <body>
-
-  <table class="table">
-  <thead>
-    <tr>
-      <th>CustomerID</th>
-      <th>CompanyName</th>
-      <th>ContactName</th>
-      <th>ContactTitle</th>
-      <th>Address</th>
-      <th>City</th>
-      <th>Country</th>
-    </tr> 
-  </thead>
-  <tbody> 
-    <?php   
-      if(isset($_GET["pagenum"]){
-        $pagina = $_GET["pagenum"];
-        $query = "SELECT * FROM customers LIMIT $pagina, 20 ";
-        $result = $con->query($query);
-        if ($result->num_rows==0){
-          echo "No s'han trobat dades";
-        }else{        
-          while($client = $result->FETCH_ASSOC()){          
-            echo utf8_encode("<tr> <td> ".$client["CustomerID"]."</td><td> ".$client["CompanyName"]."</td><td> ".$client["ContactName"]."</td><td> ".$client["ContactTitle"]."</td><td> ".$client["Address"]."</td><td> ".$client["City"]."</td><td> ".$client["Country"]."</td></tr>");
+<form method="get" action="http://localhost/GitRepos/Projecte-Web-PICE_01/php/sqltest.php">
+    <input type="text" name="cerca">
+    <input type="submit" value="Canviar"/>
+  </form>
+  
+  
+      <?php
+        if(isset($_GET["cerca"])){
+          $cerca = $_GET["cerca"];
+          $query = "SELECT * FROM customers WHERE CompanyName LIKE '%$cerca%'";
+          $result = $con->query($query);
+          if ($result->num_rows==0){
+            echo "No s'han trobat dades";
+          }else{
+            echo "<table class='table'>
+            <thead>
+              <tr>
+                <th>CustomerID</th>
+                <th>CompanyName</th>
+                <th>ContactName</th>
+                <th>ContactTitle</th>
+                <th>Address</th>
+                <th>City</th>
+                <th>Country</th>
+              </tr> 
+            </thead>
+            <tbody> ";
+            while($client = $result->FETCH_ASSOC()){          
+              echo utf8_encode("<tr> <td> ".$client["CustomerID"]."</td><td> ".$client["CompanyName"]."</td><td> ".$client["ContactName"]."</td><td> ".$client["ContactTitle"]."</td><td> ".$client["Address"]."</td><td> ".$client["City"]."</td><td> ".$client["Country"]."</td></tr>");
+            }
           }
         }
-      }
-      else{
-        $pagina = 0;
-        $query = "SELECT * FROM customers LIMIT $pagina, 20 ";
-        $result = $con->query($query);
-        if ($result->num_rows==0){
-          echo "No s'han trobat dades";
-        }else{        
-          while($client = $result->FETCH_ASSOC()){          
-            echo utf8_encode("<tr> <td> ".$client["CustomerID"]."</td><td> ".$client["CompanyName"]."</td><td> ".$client["ContactName"]."</td><td> ".$client["ContactTitle"]."</td><td> ".$client["Address"]."</td><td> ".$client["City"]."</td><td> ".$client["Country"]."</td></tr>");
-          }
+        else{
+          
         }
-
-      }
-      
-    ?>
-  </tbody>
+        
+      ?>
+    </tbody>
   </table>
-  <div id="navbar">
-    <nav aria-label="Paginació">
-      <ul class="pagination">
-        </li>
-          <li class="page-item"><a class="page-link" href="http://localhost/GitRepos/Projecte-Web-PICE_01/php/sqltest.php?pagenum=0">1</a></li>
-          <li class="page-item"><a class="page-link" href="http://localhost/GitRepos/Projecte-Web-PICE_01/php/sqltest.php?pagenum=20">2</a></li>
-          <li class="page-item"><a class="page-link" href="http://localhost/GitRepos/Projecte-Web-PICE_01/php/sqltest.php?pagenum=40">3</a></li>
-          <li class="page-item"><a class="page-link" href="http://localhost/GitRepos/Projecte-Web-PICE_01/php/sqltest.php?pagenum=60">4</a></li>
-          <li class="page-item"><a class="page-link" href="http://localhost/GitRepos/Projecte-Web-PICE_01/php/sqltest.php?pagenum=80">5</a></li>
-        </li>
-      </ul>
-    </nav>
+  
 </body>
 </html>
 <?php
