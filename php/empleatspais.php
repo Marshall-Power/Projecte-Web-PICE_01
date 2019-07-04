@@ -12,8 +12,8 @@
 
 <?php
   if(isset($_GET["ciutat"])){
-    $ciutat = $_GET["ciutat"];
-    $pais = $_GET["pais"];
+    $ciutat = utf8_decode($_GET["ciutat"]);
+    $pais = utf8_encode($_GET["pais"]);
     $query = "SELECT * FROM customers WHERE Country ='$pais' AND City ='$ciutat'";
     $result2 = $con->query($query);
     if ($result2->num_rows==0){
