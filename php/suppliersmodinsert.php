@@ -22,7 +22,7 @@
     .amagat{
       display:none;
     }
-    #afegir,#comit{
+    #afegir,#modificar{
       margin-top:10px;
     }
     
@@ -83,11 +83,30 @@
       }
     });
     
-    $("comit").on("click", function(){
-
+    $("#modificar").on("click", function(){
+      var nomcompanyia = $("#mnomcomp").val();
+      var nomcontacte = $("#mnomcontacte").val();
+      var adreca = $("#madress").val();
+      var ciutat = $("#mciutat").val();
+      var pais = $("#mpais").val();
+      alert("He entrat");
+      console.log("Say something");
+      if (nomcompanyia != ""){
+        $.ajax({
+        type:"POST",
+        url:"modsuppdatabase.php",
+        method:"POST",
+        data:{nomcompanyia, nomcontacte, adreca, ciutat, pais},
+        success: function(result){
+            alert("Modificacions fetes amb exit!");
+            $("#capa3").addClass("amagat");
+          }
+        });
+      }else{
+        $("#capa3").addClass("amagat");
+      }
     });
   });
-
 
 
   
@@ -126,11 +145,11 @@
     </div>
     
     <div class="col-md-4 amagat" id="capa2">
-      <label for="afegprov"><h3><u>Introdueix el nou proveidor <u><h3></label>
+      <label for="afegprov"><h3><u>Introdueix el nou proveidor </u></h3></label>
       <div class="form-group" id="afegprov">
         <label for="nomcomp">Nom de la companyia: </label><br>
         <input type="text" id="nomcomp" default="" autofocus><br>
-        <label for="nomcontacte">Nom del contacte: </label>
+        <label for="nomcontacte">Nom del contacte: </label><br>
         <input type="text" id="nomcontacte" ><br>
         <label for="adress">Adreça: </label><br>
         <input type="text" id="adress" ><br>
@@ -142,9 +161,9 @@
       </div>
     </div>
     <div class="col-md-4 amagat" id="capa3">
-      <label for="modprov"><h3><u>Página de modificiació <u><h3></label>
+      <label for="modprov"><h3><u>Página de modificiació </u></h3></label>
       <div class="form-group" id="modprov">
-        <button class="btn btn-warning" id="modificar">Modificar proveidor</button>
+        <!--<button class="btn btn-warning" id="modificar">Modificar proveidor</button>-->
       </div>
   </div>
   
