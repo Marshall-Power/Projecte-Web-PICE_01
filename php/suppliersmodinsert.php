@@ -50,7 +50,7 @@
       })
     });
 
-    $("#afegir").on("click", function(){      
+    $(document).on("click", "#afegir", function(){      
       var nomcompanyia = $("#nomcomp").val();
       var nomcontacte = $("#nomcontacte").val();
       var adreca = $("#adress").val();
@@ -83,7 +83,7 @@
       }
     });
     
-    $("#modificar").on("click", function(){
+    $(document).on("click", "#modificar", function(){
       var nomcompanyia = $("#mnomcomp").val();
       var nomcontacte = $("#mnomcontacte").val();
       var adreca = $("#madress").val();
