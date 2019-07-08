@@ -1,0 +1,50 @@
+.header{
+  padding: 30px;
+  text-align: center;
+  background: #1abc9c;
+  font-size: 30px;
+  margin: 0;
+  margin-bottom:10px;
+}
+a{
+  color:white;
+}
+
+#header1,#header2,#header3{
+  display:inline;
+}
+body{
+  padding: 0;
+  margin:0;
+}
+.container{
+  position: relative;
+  padding-bottom:2.5rem;
+  padding-right:40px;
+}
+img{
+  margin-right:10px;
+}
+.footer{
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height:2.5rem;
+  background-color: rgb(83, 153, 74);
+  color: white;
+  text-align: center;  
+}
+#dubtes{
+  position: absolute;
+  right:-86px;
+  top:400px;
+  height:30px;
+  width:200px;
+  background-color:orangered;
+  transform:rotate(270deg);
+  
+}
+#dubtes:hover{
+  height:250px;
+  transition: height 2s;
+}
