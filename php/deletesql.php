@@ -8,7 +8,38 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.css">
   <script src="../jquery.js"></script>
+  <script src="../jquery-ui.js"></script>
+  <link rel="stylesheet" type="text/css" href="../jquery-ui.structure.css">
+  <link rel="stylesheet" type="text/css" href="../jquery-ui.theme.css">
   <title>Delete SQL</title>
+  <script>
+  $(document).ready(function(){
+    $(document).on("click", ".btn-danger", function(){
+      var suppid = $(this).attr("id");
+      alert(suppid);
+      $( "#dialog" ).dialog({
+        resizable: false,
+        height: "auto",
+        width: 400,
+        modal: true,
+        autoOpen: false,
+        show: {
+          effect: "blind",
+          duration: 1000
+        },
+        buttons: {
+          "Eliminar": function() {
+            $( this ).dialog( "close" );
+          },
+          "Cancelar": function() {
+            $( this ).dialog( "close" );
+          }
+        }
+      });
+      $( "#dialog" ).dialog( "open" );
+    });
+  });
+  </script>
 </head>
 <body>
   <table class="table table-striped">
@@ -18,15 +49,17 @@
     </thead>
     <tbody>
       <?php
-        $sql = "SELECT CompanyName, ContactName from suppliers";
+        $sql = "SELECT SupplierID, CompanyName, ContactName from suppliers";
         $cerca = $con->query($sql);
         while($results = $cerca->FETCH_ASSOC()){
-          echo "<tr><td>".utf8_encode($results["CompanyName"])."</td><td>".$results["ContactName"]."</td></tr>";
+          echo "<tr><td>".utf8_encode($results["CompanyName"])."</td><td>".$results["ContactName"]."</td><td><button class='btn btn-danger' id=".$results["SupplierID"].">Eliminar</button></td></tr>";
         }
       ?>
     </tbody>
   </table>
-  
+  <div id="dialog" title="Vols eliminar aquest proveidor?">
+    <p><span class="ui-icon ui-icon-alert" style="float:left; margin:12px 12px 20px 0;"></span>Es borrarà de forma permanent el distribuidor, n'estás segur?</p>
+  </div>
 </body>
 </html>
 <?php
