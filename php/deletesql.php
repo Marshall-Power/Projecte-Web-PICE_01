@@ -16,6 +16,15 @@
   $(document).ready(function(){
     $(document).on("click", ".btn-danger", function(){
       var suppid = $(this).attr("data-id");
+      $.ajax({
+        type:"POST",
+        url:"mirarproductes.php",
+        method="POST",
+        data:{suppid},
+        success: function(){
+          
+        }
+      })
       $( "#dialog" ).dialog({
         resizable: false,
         height: "auto",
