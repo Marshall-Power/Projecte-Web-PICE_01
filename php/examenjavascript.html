@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.css">
+  <title>Examen de Javascript</title>
+  <script>
+    function exchange(){
+      var i = 1;
+      while(i<=100){
+        if(i<5){
+          document.getElementById("tbody").innerHTML += "<tr><td>"+i+"€</td><td>"+(i*1.1207753).toFixed(2)+"$</td><td>"+(i*121.969202).toFixed(2)+"¥</td><td>"+(i*0.898829408).toFixed(2)+"£</td></tr>";
+          i++;
+        }else if(i<25){
+          document.getElementById("tbody").innerHTML += "<tr><td>"+i+"€</td><td>"+(i*1.1207753).toFixed(2)+"$</td><td>"+(i*121.969202).toFixed(2)+"¥</td><td>"+(i*0.898829408).toFixed(2)+"£</td></tr>";
+          i = i+5;
+        }else if(i<50){
+          document.getElementById("tbody").innerHTML += "<tr><td>"+i+"€</td><td>"+(i*1.1207753).toFixed(2)+"$</td><td>"+(i*121.969202).toFixed(2)+"¥</td><td>"+(i*0.898829408).toFixed(2)+"£</td></tr>";
+          i = i+25;
+        }else if(i<100){
+          document.getElementById("tbody").innerHTML += "<tr><td>"+i+"€</td><td>"+(i*1.1207753).toFixed(2)+"$</td><td>"+(i*121.969202).toFixed(2)+"¥</td><td>"+(i*0.898829408).toFixed(2)+"£</td></tr>";
+          i = i+50;
+        }else if(i==100){
+          document.getElementById("tbody").innerHTML += "<tr><td>"+i+"€</td><td>"+(i*1.1207753).toFixed(2)+"$</td><td>"+(i*121.969202).toFixed(2)+"¥</td><td>"+(i*0.898829408).toFixed(2)+"£</td></tr>";
+          i++;
+        }
+        
+        
+      }
+    }
+  </script>
+</head>
+<body onload="exchange()"> 
+  <table class="table table-striped table-hover">
+    <thead class="thead-dark">
+      <th>Euro(€)</th>
+      <th>Dollar($)</th>
+      <th>Yen(¥)</th>
+      <th>Lliura(£)</th>
+    </thead>
+    <tbody id="tbody">
+
+    </tbody>
+    
+  </table>
+  
+</body>
+</html>
