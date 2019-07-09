@@ -15,8 +15,7 @@
   <script>
   $(document).ready(function(){
     $(document).on("click", ".btn-danger", function(){
-      var suppid = $(this).attr("id");
-      alert(suppid);
+      var suppid = $(this).attr("data-id");
       $( "#dialog" ).dialog({
         resizable: false,
         height: "auto",
@@ -29,6 +28,18 @@
         },
         buttons: {
           "Eliminar": function() {
+            $( this ).dialog( "close" );
+            $.ajax({
+              type: "POST",
+              url:"eliminarsupp.php",
+              method: "POST",
+              data:{suppid},
+              success: function(){
+                $("#"+suppid).remove();
+              }
+            });
+          },
+          "Reubicar":function(){
             $( this ).dialog( "close" );
           },
           "Cancelar": function() {
@@ -52,12 +63,12 @@
         $sql = "SELECT SupplierID, CompanyName, ContactName from suppliers";
         $cerca = $con->query($sql);
         while($results = $cerca->FETCH_ASSOC()){
-          echo "<tr><td>".utf8_encode($results["CompanyName"])."</td><td>".$results["ContactName"]."</td><td><button class='btn btn-danger' id=".$results["SupplierID"].">Eliminar</button></td></tr>";
+          echo "<tr id=".$results["SupplierID"]."><td>".utf8_encode($results["CompanyName"])."</td><td>".$results["ContactName"]."</td><td><button class='btn btn-danger' data-id=".$results["SupplierID"].">Eliminar</button></td></tr>";
         }
       ?>
     </tbody>
   </table>
-  <div id="dialog" title="Vols eliminar aquest proveidor?">
+  <div id="dialog" title="Vols eliminar aquest proveidor?" style="display:none">
     <p><span class="ui-icon ui-icon-alert" style="float:left; margin:12px 12px 20px 0;"></span>Es borrarà de forma permanent el distribuidor, n'estás segur?</p>
   </div>
 </body>
