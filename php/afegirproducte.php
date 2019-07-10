@@ -14,6 +14,11 @@ include 'connect.php';
     .amagat{
       display:none  ;
     }
+    #afegir{
+      margin-top:5px;
+      margin-bottom:5px;
+    }
+    
     
   </style>
   <script>
@@ -44,23 +49,26 @@ include 'connect.php';
   </script>
 </head>
 <body>
-  <h3> Emplena els camps per afegir un producte </h3>
-  <div class="form-group" id="capa2">
-              <div id="duplicat" class="amagat"> El producte ja existeix!</div> <br>
-              <label for="nom">Nom:</label><br>
-              <input type="text" id="nom"> <br>
-              <label for="proveidor">Proveidor:</label><br>
-              <select class="custom-select" id="proveidor"><br>
-              <?php
-                $sql = "SELECT CompanyName from suppliers";
-                $query = $con->query($sql);
-                while($resultat = $query->FETCH_ASSOC()){
-                  echo "<option value='".utf8_encode($resultat["CompanyName"])."'>".utf8_encode($resultat["CompanyName"])."</option>";
-                };
-              ?>
-              </select>
-  </div>
-  <button class="btn btn-info" id="afegir">Afegir Producte</button>
+  <h3> Emplena els camps per afegir un producte: </h3>
+  <form  method="POST" enctype="multipart/form-data" action="producteafegit.php">
+    <div id="duplicat" class="amagat"> El producte ja existeix!</div> <br>
+    <label for="nom">Nom:</label><br>
+    <input type="text" id="nom" name="nom"> <br>
+    <label for="proveidor">Proveidor:</label><br>
+    <select class="custom-select" id="proveidor" name="prov"><br>
+    <?php
+      $sql = "SELECT CompanyName from suppliers";
+      $query = $con->query($sql);
+        while($resultat = $query->FETCH_ASSOC()){
+          echo "<option value='".utf8_encode($resultat["CompanyName"])."'>".utf8_encode($resultat["CompanyName"])."</option>";
+        };
+    ?>
+    </select>
+    <label for="file">Foto</label>
+    <input type="file" id="file" name="foto">
+    <button type="submit" class="btn btn-info" id="afegir">Afegir Producte</button>
+  </form>
+  
   
 </body>
 </html>
