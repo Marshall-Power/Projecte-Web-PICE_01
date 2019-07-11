@@ -1,9 +1,7 @@
 <?php include 'connect.php';
 
 $nom = $_POST["nom"];
-echo $nom;
 $prov = $_POST["prov"];
-echo $prov;
 if(isset($_FILES["foto"])){
   $file = $_FILES["foto"]["tmp_name"];
   $filename = $_FILES["foto"]["name"];
@@ -18,5 +16,19 @@ if(isset($_FILES["foto"])){
     }else{echo "Error!";}
   }
 }
+
+$insert = "INSERT INTO products (ProductName, SupplierID, Image)
+            VALUES ('".$nom."','".$prov."','".$filename."')";
+$doinsert = $con->query($insert);
+
+$select = "SELECT ProductName, SupplierID, Image
+            FROM products";
+$doselect = $con->query($select);
+$resultat = $doselect->FETCH_ASSOC();
+echo "Nom:".$resultat["ProductName"]."<br>";
+echo "ID de proveidor:".$resultat["SupplierID"]."<br>";
+echo "<img src='uploads/".$resultat["Image"]."'>";
+
+
 include 'close.php';
 ?>

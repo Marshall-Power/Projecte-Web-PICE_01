@@ -55,12 +55,12 @@ include 'connect.php';
     <label for="nom">Nom:</label><br>
     <input type="text" id="nom" name="nom"> <br>
     <label for="proveidor">Proveidor:</label><br>
-    <select class="custom-select" id="proveidor" name="prov"><br>
+    <select class="custom-select" id="proveidor" name="prov">
     <?php
-      $sql = "SELECT CompanyName from suppliers";
+      $sql = "SELECT CompanyName, SupplierID from suppliers";
       $query = $con->query($sql);
         while($resultat = $query->FETCH_ASSOC()){
-          echo "<option value='".utf8_encode($resultat["CompanyName"])."'>".utf8_encode($resultat["CompanyName"])."</option>";
+          echo "<option value='".utf8_encode($resultat["SupplierID"])."'>".utf8_encode($resultat["CompanyName"])."</option>";
         };
     ?>
     </select>
